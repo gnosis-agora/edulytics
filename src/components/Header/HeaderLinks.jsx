@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import { Manager, Target, Popper } from "react-popper";
+import { NavLink } from "react-router-dom";
 import {
   withStyles,
   IconButton,
@@ -122,25 +123,25 @@ class HeaderLinks extends React.Component {
                       onClick={this.handleClose}
                       className={classes.dropdownItem}
                     >
-                      Ryan
+                      <NavLink to="/student">Student</NavLink>
                     </MenuItem>
                     <MenuItem
                       onClick={this.handleClose}
                       className={classes.dropdownItem}
                     >
-                      Justin
+                      <NavLink to="/courseInstructor">Course Instructor</NavLink>
                     </MenuItem>
                     <MenuItem
                       onClick={this.handleClose}
                       className={classes.dropdownItem}
                     >
-                      Yu Jie
+                      <NavLink to="/cohortAdministrator">Cohort Administrator</NavLink>
                     </MenuItem>
                     <MenuItem
                       onClick={this.handleClose}
                       className={classes.dropdownItem}
                     >
-                      Chen Kuang
+                      <NavLink to="/systemAdministrator">System Administrator</NavLink>
                     </MenuItem>
                   </MenuList>
                 </Paper>

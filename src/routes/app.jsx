@@ -1,4 +1,8 @@
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
+import Student from "views/Student/Student.jsx";
+import CourseInstructor from "views/CourseInstructor/CourseInstructor.jsx";
+import CohortAdministrator from "views/CohortAdministrator/CohortAdministrator.jsx";
+import SystemAdministrator from "views/SystemAdministrator/SystemAdministrator.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
 import TableList from "views/TableList/TableList.jsx";
 import Typography from "views/Typography/Typography.jsx";
@@ -23,6 +27,34 @@ const appRoutes = [
     navbarName: "Material Dashboard",
     icon: Dashboard,
     component: DashboardPage
+  },
+  {
+    path: "/student",
+    sidebarName: "Student",
+    navbarName: "Student",
+    icon: Dashboard,
+    component: Student
+  },
+  {
+    path: "/courseInstructor",
+    sidebarName: "Course Instructor",
+    navbarName: "Course Instructor",
+    icon: Dashboard,
+    component: CourseInstructor
+  },
+  {
+    path: "/cohortAdministrator",
+    sidebarName: "Cohort Administrator",
+    navbarName: "Cohort Administrator",
+    icon: Dashboard,
+    component: CohortAdministrator
+  },
+  {
+    path: "/systemAdministrator",
+    sidebarName: "System Administrator",
+    navbarName: "System Administrator",
+    icon: Dashboard,
+    component: SystemAdministrator
   },
   {
     path: "/user",
