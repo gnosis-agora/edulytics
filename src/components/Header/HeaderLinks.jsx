@@ -25,7 +25,11 @@ class HeaderLinks extends React.Component {
     this.setState({ open: !this.state.open });
   };
 
-  handleClose = () => {
+  handleClose = (event) => {
+    if (this.target1.contains(event.target)) {
+      return;
+    }
+
     this.setState({ open: false });
   };
   render() {
@@ -51,6 +55,7 @@ class HeaderLinks extends React.Component {
         >
           <Search className={classes.searchIcon} />
         </SearchButton>
+
         <IconButton
           color="inherit"
           aria-label="Dashboard"
@@ -61,24 +66,40 @@ class HeaderLinks extends React.Component {
             <p className={classes.linkText}>Dashboard</p>
           </Hidden>
         </IconButton>
+        {/* =========== Notifications here ============ */}
+        <IconButton
+          color="inherit"
+          aria-label="Notifications"
+          aria-owns={open ? "menu-list" : null}
+          aria-haspopup="true"
+          className={classes.buttonLink}
+        >
+          <Notifications className={classes.links} />
+          <span className={classes.notifications}>5</span>
+
+        </IconButton>
+        {/* =========== User-view switcher here ============ */}
         <Manager style={{ display: "inline-block" }}>
           <Target>
-            <IconButton
-              color="inherit"
-              aria-label="Notifications"
-              aria-owns={open ? "menu-list" : null}
-              aria-haspopup="true"
-              onClick={this.handleClick}
-              className={classes.buttonLink}
-            >
-              <Notifications className={classes.links} />
-              <span className={classes.notifications}>5</span>
-              <Hidden mdUp>
-                <p onClick={this.handleClick} className={classes.linkText}>
-                  Notification
-                </p>
-              </Hidden>
-            </IconButton>
+            <div
+              ref={node => {
+                this.target1 = node;
+              }}
+            >          
+              <IconButton
+                color="inherit"
+                aria-label="Person"
+                className={classes.buttonLink}
+                onClick={this.handleClick}
+              >
+                <Person className={classes.links} />
+                <Hidden mdUp>
+                  <p onClick={this.handleClick} className={classes.linkText}>
+                    Person
+                  </p>
+                </Hidden>
+              </IconButton>
+            </div>
           </Target>
           <Popper
             placement="bottom-start"
@@ -101,31 +122,25 @@ class HeaderLinks extends React.Component {
                       onClick={this.handleClose}
                       className={classes.dropdownItem}
                     >
-                      Mike John responded to your email
+                      Ryan
                     </MenuItem>
                     <MenuItem
                       onClick={this.handleClose}
                       className={classes.dropdownItem}
                     >
-                      You have 5 new tasks
+                      Justin
                     </MenuItem>
                     <MenuItem
                       onClick={this.handleClose}
                       className={classes.dropdownItem}
                     >
-                      You're now friend with Andrew
+                      Yu Jie
                     </MenuItem>
                     <MenuItem
                       onClick={this.handleClose}
                       className={classes.dropdownItem}
                     >
-                      Another Notification
-                    </MenuItem>
-                    <MenuItem
-                      onClick={this.handleClose}
-                      className={classes.dropdownItem}
-                    >
-                      Another One
+                      Chen Kuang
                     </MenuItem>
                   </MenuList>
                 </Paper>
@@ -133,16 +148,6 @@ class HeaderLinks extends React.Component {
             </ClickAwayListener>
           </Popper>
         </Manager>
-        <IconButton
-          color="inherit"
-          aria-label="Person"
-          className={classes.buttonLink}
-        >
-          <Person className={classes.links} />
-          <Hidden mdUp>
-            <p className={classes.linkText}>Profile</p>
-          </Hidden>
-        </IconButton>
       </div>
     );
   }

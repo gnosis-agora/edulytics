@@ -7,12 +7,11 @@ import {
   Toolbar,
   IconButton,
   Hidden,
-  Button
+  Button,
 } from "material-ui";
 import cx from "classnames";
 
 import headerStyle from "variables/styles/headerStyle.jsx";
-
 import HeaderLinks from "./HeaderLinks";
 
 function Header({ ...props }) {
@@ -35,7 +34,7 @@ function Header({ ...props }) {
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}
-          <Button href="#" className={classes.title}>
+          <Button href="#" className={classes.title} >
             {makeBrand()}
           </Button>
         </div>
